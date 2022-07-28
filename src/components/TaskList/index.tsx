@@ -1,6 +1,15 @@
-import { Box, Button, Checkbox, Flex, Input, Text } from "@chakra-ui/react"
+import {
+    Box,
+    Button,
+    Checkbox,
+    Flex,
+    Icon,
+    Input,
+    Text,
+} from "@chakra-ui/react"
 
 import { RiAddCircleLine } from "react-icons/ri"
+import { TbClipboardText } from "react-icons/tb"
 import { BiTrash } from "react-icons/bi"
 import { useState } from "react"
 
@@ -130,41 +139,76 @@ export function TaskList() {
                     mt={"2.5rem"}
                     px={["15px", "15px", "0"]}
                 >
-                    {tasks.map((task) => (
+                    {tasks.length === 0 ? (
                         <Flex
                             w="full"
-                            key={task.id}
-                            bg={task.isCompleted ? "gray.500" : "gray.400"}
-                            py="1rem"
-                            px="1rem"
+                            py={["3rem", "5.5rem"]}
                             mt={"0.75rem"}
                             borderRadius={"8px"}
-                            justifyContent={"space-between"}
+                            justifyContent={"center"}
                             alignItems="center"
-                            textDecoration={
-                                task.isCompleted ? "line-through" : ""
-                            }
+                            flexDir={"column"}
+                            borderTop={"1px solid #333333"}
                         >
-                            <Checkbox
-                                spacing="1rem"
-                                pr={"2rem"}
-                                onChange={() => handleChangeTaskStatus(task.id)}
-                                colorScheme="blue"
-                                checked={task.isCompleted}
+                            <Icon
+                                as={TbClipboardText}
+                                w="56px"
+                                h="56px"
+                                color={"gray.300"}
+                            />
+
+                            <Text
+                                pt="1rem"
+                                fontSize={"1rem"}
+                                fontWeight="700"
+                                color="gray.300"
+                                textAlign={"center"}
                             >
-                                <Text fontSize="0.875rem">{task.title}</Text>
-                            </Checkbox>
-                            <Button
-                                colorScheme={"none"}
-                                _hover={{
-                                    color: "danger",
-                                }}
-                                onClick={() => removeTodo(task.id)}
-                            >
-                                <BiTrash size="20px" />
-                            </Button>
+                                Você ainda não tem tarefas cadastradas <br />{" "}
+                                Crie tarefas e organize seus itens a fazer
+                            </Text>
                         </Flex>
-                    ))}
+                    ) : (
+                        tasks.map((task) => (
+                            <Flex
+                                w="full"
+                                key={task.id}
+                                bg={task.isCompleted ? "gray.500" : "gray.400"}
+                                py="1rem"
+                                px="1rem"
+                                mt={"0.75rem"}
+                                borderRadius={"8px"}
+                                justifyContent={"space-between"}
+                                alignItems="center"
+                                textDecoration={
+                                    task.isCompleted ? "line-through" : ""
+                                }
+                            >
+                                <Checkbox
+                                    spacing="1rem"
+                                    pr={"2rem"}
+                                    onChange={() =>
+                                        handleChangeTaskStatus(task.id)
+                                    }
+                                    colorScheme="blue"
+                                    checked={task.isCompleted}
+                                >
+                                    <Text fontSize="0.875rem">
+                                        {task.title}
+                                    </Text>
+                                </Checkbox>
+                                <Button
+                                    colorScheme={"none"}
+                                    _hover={{
+                                        color: "danger",
+                                    }}
+                                    onClick={() => removeTodo(task.id)}
+                                >
+                                    <BiTrash size="20px" />
+                                </Button>
+                            </Flex>
+                        ))
+                    )}
                 </Flex>
             </Flex>
         </Flex>

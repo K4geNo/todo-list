@@ -70,8 +70,8 @@ export function TaskList() {
                     colorScheme={"none"}
                     bg="blue-dark"
                     w={["100%", "100%", "90px"]}
-                    h="52px"
-                    mt={["10px", "10px", "0px"]}
+                    h="54px"
+                    mt={["10px", "10px", "-3px"]}
                     ml={["0", "8px"]}
                     rightIcon={<RiAddCircleLine size={"16px"} />}
                     onClick={() => handleCreateNewTask()}

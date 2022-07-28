@@ -28,12 +28,8 @@ export const defaultTheme = extendTheme({
         "gray-400": "#333333",
         "gray-500": "#262626",
         "gray-600": "#1A1A1A",
-        "green-700": "#0D0D0D",
+        "gray-700": "#0D0D0D",
 
         danger: "#E25858",
-    },
-    "*::focus": {
-        outline: 0,
-        boxShadow: "0 0 0 2px gray.500",
     },
 })

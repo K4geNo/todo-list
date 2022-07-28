@@ -43,9 +43,9 @@ export function TaskList() {
             align="center"
             flexDir="column"
         >
-            <Box mt={"-30px"}>
+            <Box mt={"-30px"} p={["10px", "0"]}>
                 <Input
-                    w={"638px"}
+                    w={["100%", "100%", "638px"]}
                     h="54px"
                     bg="gray.500"
                     placeholder="Adicione uma nova tarefa"
@@ -58,9 +58,10 @@ export function TaskList() {
                     type="submit"
                     colorScheme={"none"}
                     bg="blue-dark"
-                    w="90px"
+                    w={["100%", "100%", "90px"]}
                     h="52px"
-                    ml={"8px"}
+                    mt={["10px", "10px", "0px"]}
+                    ml={["0", "8px"]}
                     rightIcon={<RiAddCircleLine size={"16px"} />}
                     onClick={() => handleCreateNewTask()}
                 >
@@ -82,6 +83,7 @@ export function TaskList() {
                     w="full"
                     justifyContent={"space-between"}
                     alignItems="center"
+                    px={["15px", "15px", "15px", "0"]}
                 >
                     <Text fontWeight={"bold"} fontSize="0.875rem" color="blue">
                         Tarefas criadas
@@ -124,6 +126,7 @@ export function TaskList() {
                     alignItems="center"
                     flexDir={"column"}
                     mt={"2.5rem"}
+                    px={["15px", "15px", "0"]}
                 >
                     {tasks.map((task) => (
                         <Flex
